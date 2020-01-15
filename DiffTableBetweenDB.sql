@@ -17,7 +17,7 @@ GO
 -- removed restriction to validate other schemas
 -- =============================================
 CREATE PROCEDURE [dbo].[DiffTableBetweenDB] 
-   @ComparisonDatabaseName NVARCHAR (250) -- pass DB from another DB
+   @ComparisonDatabaseName NVARCHAR (250) -- Other Database Name
   ,@TableToCompare NVARCHAR (250) -- Table to compare (SchemaName.TableName)
   ,@Top INT = 10 -- return just first 10 records by default
   ,@OrderByColumn VARCHAR(250) = NULL -- ordered column
@@ -269,7 +269,7 @@ BEGIN
 			 OR
 			(	UPPER(ColumnName) = UPPER('ColumnName2')
 			 AND UPPER(TableName)  = UPPER('TableName2'))
-	;  
+	)  
 
 
 	IF (@JoinFKTables = 1) BEGIN
